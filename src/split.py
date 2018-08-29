@@ -1,6 +1,5 @@
 import glob
 import os
-from math import floor
 
 MB = 1024 * 1024
 
@@ -8,8 +7,8 @@ for i in glob.iglob(f'assets/**/sharedassets*.assets', recursive=True):
     fileSize = os.path.getsize(i)
 
     if fileSize > MB:
-        q = floor(fileSize / MB)
-        r = floor(fileSize % MB)
+        q = fileSize // MB
+        r = fileSize % MB
         n = 0
 
         with open(i, 'rb') as f:
